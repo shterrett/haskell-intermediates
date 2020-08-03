@@ -1,0 +1,50 @@
+name:                jl
+version:             0.1.0.0
+github:              "shterrett/jl"
+license:             MIT
+author:              "Stuart H Terrett"
+maintainer:          "shterrett@gmail.com"
+copyright:           "2020 Stuart Terrett"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Tutorial for json pretty printer and filter
+# category:            Command Line
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/jl#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- lens
+- lens-aeson
+
+library:
+  source-dirs: src
+
+executables:
+  jl-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - jl
+
+tests:
+  jl-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - jl
