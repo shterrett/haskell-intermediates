@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1388bd58f50f2d1ba5034ddc6a0b21869eee42bc2fcdb979ef1e8288ab57310f
+-- hash: 27775b5444ee64c8ad1275e01b670ac5eff89e61ad90464d39cbe3855d799eee
 
 name:           jl
 version:        0.1.0.0
@@ -26,16 +26,24 @@ source-repository head
 
 library
   exposed-modules:
+      JL.PrettyPrint
       Lib
   other-modules:
       Paths_jl
   hs-source-dirs:
       src
+  default-extensions: DeriveFunctor DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving LambdaCase OverloadedLabels OverloadedStrings QuasiQuotes TemplateHaskell TypeApplications
   build-depends:
       aeson
     , base >=4.7 && <5
+    , generic-lens
     , lens
     , lens-aeson
+    , mtl
+    , scientific
+    , text
+    , unordered-containers
+    , vector
   default-language: Haskell2010
 
 executable jl-exe
@@ -44,27 +52,48 @@ executable jl-exe
       Paths_jl
   hs-source-dirs:
       app
+  default-extensions: DeriveFunctor DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving LambdaCase OverloadedLabels OverloadedStrings QuasiQuotes TemplateHaskell TypeApplications
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.7 && <5
+    , generic-lens
     , jl
     , lens
     , lens-aeson
+    , mtl
+    , scientific
+    , text
+    , unordered-containers
+    , vector
   default-language: Haskell2010
 
 test-suite jl-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      JL.Arbitrary
+      JL.PrettyPrintSpec
       Paths_jl
   hs-source-dirs:
       test
+  default-extensions: DeriveFunctor DeriveGeneric DerivingStrategies GeneralizedNewtypeDeriving LambdaCase OverloadedLabels OverloadedStrings QuasiQuotes TemplateHaskell TypeApplications
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aeson
+      QuickCheck
+    , aeson
     , base >=4.7 && <5
+    , bytestring
+    , generic-lens
+    , hspec
+    , hspec-core
+    , hspec-discover
     , jl
     , lens
     , lens-aeson
+    , mtl
+    , scientific
+    , text
+    , unordered-containers
+    , vector
   default-language: Haskell2010
