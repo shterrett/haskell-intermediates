@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 27775b5444ee64c8ad1275e01b670ac5eff89e61ad90464d39cbe3855d799eee
+-- hash: 8bd76947778015aa21a7cc6f9132b61df610a6535c68d27a241e5c5048fb8240
 
 name:           jl
 version:        0.1.0.0
@@ -36,6 +36,7 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , generic-lens
     , lens
     , lens-aeson
@@ -57,6 +58,7 @@ executable jl-exe
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , generic-lens
     , jl
     , lens

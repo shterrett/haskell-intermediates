@@ -33,6 +33,7 @@ default-extensions:
 
 dependencies:
 - base >= 4.7 && < 5
+- bytestring
 - aeson
 - generic-lens
 - lens
@@ -66,7 +67,6 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - bytestring
     - jl
     - hspec-core
     - hspec-discover
