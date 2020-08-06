@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8bd76947778015aa21a7cc6f9132b61df610a6535c68d27a241e5c5048fb8240
+-- hash: d898b83450dcc0cd4c69f89a68dce9f4927ec794624bb4c327cc44fbba1cce19
 
 name:           jl
 version:        0.1.0.0
@@ -27,7 +27,6 @@ source-repository head
 library
   exposed-modules:
       JL.PrettyPrint
-      Lib
   other-modules:
       Paths_jl
   hs-source-dirs:
