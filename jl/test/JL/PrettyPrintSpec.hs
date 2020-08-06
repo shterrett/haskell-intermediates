@@ -44,6 +44,9 @@ spec = do
       let json = [aesonQQ| { "x": true, "y": 3.14, "z": "huh?" } |]
           expected = "{\n  \"z\": \"huh?\",\n  \"x\": true,\n  \"y\": 3.14\n}"
       prettyPrint "  " json `shouldBe` expected
+    -- This is a badly written test, but it demonstrates that we correctly
+    -- handle a complex structure. It's (mostly) here for regression testing,
+    -- and the actual kinks were worked out in ghci.
     it "pretty prints a nested, real world example" $ do
       let json = [aesonQQ| {
                   "glossary": { "title": "example glossary", "GlossDiv": { "title": "S",
