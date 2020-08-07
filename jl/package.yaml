@@ -27,7 +27,11 @@ default-extensions:
 - OverloadedLabels
 - OverloadedStrings
 - QuasiQuotes
+- RankNTypes
+- RecordWildCards
+- ScopedTypeVariables
 - TemplateHaskell
+- TupleSections
 - TypeApplications
 
 
@@ -39,6 +43,7 @@ dependencies:
 - lens
 - lens-aeson
 - mtl
+- parsec
 - scientific
 - text
 - unordered-containers

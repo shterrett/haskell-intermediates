@@ -43,3 +43,26 @@ spec = <your tests>
 ```
 
 Then, simply implement `prettyPrint` and test it.
+
+### Focusing
+
+`jl` will take an argument that represents a path into the json tree. It will
+then follow that path and focus on that portion of the tree, passing only that
+to the pretty printer.
+
+If the given path does not return any results in the json value, an error should
+be reported. As an extension, the longest path that does return results should
+be printed, along with the results.
+
+Syntax:
+```
+.<name> --> focus on the key named "name"
+[*] --> continue on every element of the array; collect the elements in an array
+[<number>] --> focus on the "number"-th element of an array; do not keep the
+array in the results
+```
+
+The actual argument will look like
+```
+.firstKey.secondKey[*].thirdKey[1]
+```
